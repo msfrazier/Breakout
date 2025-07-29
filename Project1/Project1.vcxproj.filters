@@ -25,7 +25,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="06_extension_libraries_and_loading_other_image_formats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

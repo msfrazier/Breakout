@@ -27,6 +27,15 @@ SDL_Surface* gKeyPressSurface[KEY_PRESS_SURFACE_TOTAL];
 //Current displayed image
 SDL_Surface* gCurrentSurface = NULL;
 
+//Renderer for the window
+SDL_Renderer* gRenderer = NULL;
+
+//Texture for window
+SDL_Texture* gTexture = NULL;
+
+//Load individual images as textures
+SDL_Texture* loadTexture(std::string path);
+
 bool init()
 {
     //Initialization flag
@@ -41,7 +50,7 @@ bool init()
     else
     {
         //Create window
-        gWindow = SDL_CreateWindow("SDL Tutorial", SCREEN_WIDTH, SCREEN_HEIGHT,SDL_WINDOW_FULLSCREEN);
+        gWindow = SDL_CreateWindow("SDL Tutorial", SCREEN_WIDTH, SCREEN_HEIGHT,NULL);
         if (gWindow == NULL)
         {
             printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
@@ -49,6 +58,15 @@ bool init()
         }
         else
         {
+            //Initialize Renderer Color
+            SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+
+            //Inititialize image loading
+			/*int imgFlags = IMG_INIT_PNG;
+            if (!(IMG_init(imgFlags) & imgFlags)) {
+                printf("SDL_image could not inititialize! SDL_image Error: %s\n", IMG_GetError());
+                success = false;
+            }*/
             //Get window surface
             gScreenSurface = SDL_GetWindowSurface(gWindow);
         }

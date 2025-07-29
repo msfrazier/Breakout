@@ -70,6 +70,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\msf10\Documents\SDL\SDL3-3.2.18\include;C:\Users\msf10\Documents\SDL\SDL3_image-3.2.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\msf10\Documents\SDL\SDL3-3.2.18\VisualC\SDL\x64;C:\Users\msf10\Documents\SDL\SDL3_image-3.2.4\lib\x64</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\msf10\Documents\SDL\SDL3-3.2.18\include;C:\Users\msf10\Documents\SDL\SDL3_image-3.2.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\msf10\Documents\SDL\SDL3-3.2.18\VisualC\SDL\x64;C:\Users\msf10\Documents\SDL\SDL3_image-3.2.4\lib\x64</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\msf10\Documents\SDL\SDL3-3.2.18\include;C:\Users\msf10\Documents\SDL\SDL3_image-3.2.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\msf10\Documents\SDL\SDL3_image-3.2.4\lib\x64;C:\Users\msf10\Documents\SDL\SDL3-3.2.18\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Users\msf10\Documents\SDL\SDL3-3.2.18\include;C:\Users\msf10\Documents\SDL\SDL3_image-3.2.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\msf10\Documents\SDL\SDL3_image-3.2.4\lib\x64;C:\Users\msf10\Documents\SDL\SDL3-3.2.18\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -81,6 +97,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL3.lib;SDL3main.lib;SDL3_image.lib</AdditionalDependencies>
     </Link>
     <ResourceCompile>
       <AdditionalIncludeDirectories>SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -99,6 +116,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL3.lib;SDL3main.lib;SDL3_image.lib</AdditionalDependencies>
     </Link>
     <ResourceCompile>
       <AdditionalIncludeDirectories>SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -110,11 +128,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\msf10\Documents\SDL\SDL3-3.2.18\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\msf10\Documents\SDL\SDL3_image-3.2.4\include;C:\Users\msf10\Documents\SDL\SDL3-3.2.18\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\msf10\Documents\C++ Projects\Project1\Project1\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ResourceCompile>
       <AdditionalIncludeDirectories>SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -133,6 +153,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib</AdditionalDependencies>
     </Link>
     <ResourceCompile>
       <AdditionalIncludeDirectories>SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -145,12 +166,7 @@
     <ResourceCompile Include="Project1.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\SDL\SDL3-3.2.18\VisualC\SDL\SDL.vcxproj">
-      <Project>{81ce8daf-ebb2-4761-8e45-b71abcca8c68}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="06_extension_libraries_and_loading_other_image_formats.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
